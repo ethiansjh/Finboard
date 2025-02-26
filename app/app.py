@@ -599,4 +599,4 @@ with tab1:
                     x=historical_stock_data['daily_return'].dropna(),
                     nbinsx=30,
                     marker_color='rgba(30, 132, 73, 0.6)',
-                    marker_line_color
+                    marker_line_color))
