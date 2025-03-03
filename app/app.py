@@ -39,7 +39,7 @@ st.markdown("""
 
 # BigQuery Client Setup
 def get_bigquery_client():
-    key_path = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
+    key_path = st.secrets.get('GOOGLE_APPLICATION_CREDENTIALS')
     if not key_path:
         raise ValueError("GOOGLE_APPLICATION_CREDENTIALS environment variable not set")
     credentials = service_account.Credentials.from_service_account_file(key_path)
