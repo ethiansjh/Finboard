@@ -5,7 +5,6 @@ import plotly.graph_objects as go
 from datetime import datetime, timedelta
 from google.cloud import bigquery
 from google.oauth2 import service_account
-import os
 
 # Page configuration
 st.set_page_config(
