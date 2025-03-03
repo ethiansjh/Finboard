@@ -39,10 +39,15 @@ st.markdown("""
 
 # BigQuery Client Setup
 def get_bigquery_client():
-    key_path = st.secrets.get('GOOGLE_APPLICATION_CREDENTIALS')
-    if not key_path:
+    service_account_json = st.secrets.get('GOOGLE_APPLICATION_CREDENTIALS')
+
+    if not service_account_json:
         raise ValueError("GOOGLE_APPLICATION_CREDENTIALS environment variable not set")
-    credentials = service_account.Credentials.from_service_account_file(key_path)
+    # Parse JSON credentials into a dictionary
+    credentials_info = json.loads(service_account_json)
+    # Create credentials object
+    credentials = service_account.Credentials.from_service_account_info(credentials_info)
+
     client = bigquery.Client(credentials=credentials, project=credentials.project_id)
     return client
 
