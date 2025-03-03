@@ -20,6 +20,7 @@ resource "google_project_iam_member" "finboard-sa-iam" {
     member  = "serviceAccount:${google_service_account.finboard-sa.email}"
 }
 
+
 output "service_account_email" {
     value = google_service_account.finboard-sa.email
     description = "Email of the created service account"
